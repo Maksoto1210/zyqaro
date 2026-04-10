@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name Generator | Generate Memorable Names in Seconds</title>
+  <meta
+    name="description"
+    content="Generate brandable names for businesses, brands, startups, and usernames with a polished one-page naming tool built for fast shortlisting."
+  >
+  <meta name="theme-color" content="#f7f3ee">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Name Generator home">
+        <img class="brand-logo" src="assets/logo-wordmark.svg" alt="yqaro">
+        <span class="brand-wording">
+          <strong>Name Generator</strong>
+          <span>Powered by yqaro</span>
+        </span>
+      </a>
+
+      <nav class="topnav" aria-label="Primary">
+        <a href="#generator">Generator</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero reveal" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Naming tool for founders, studios, and creators</p>
+          <h1>Find brandable names for your next idea</h1>
+          <p class="hero-intro">
+            Build a shortlist for a business, brand, startup, or username with
+            polished suggestions that feel clear, modern, and worth keeping.
+          </p>
+
+          <div class="hero-metrics" aria-label="Product highlights">
+            <article class="metric-card">
+              <strong>20+</strong>
+              <span>fresh directions every time you generate</span>
+            </article>
+            <article class="metric-card">
+              <strong>Local saves</strong>
+              <span>keep a working shortlist in this browser</span>
+            </article>
+            <article class="metric-card">
+              <strong>No signup</strong>
+              <span>open the page and start naming immediately</span>
+            </article>
+          </div>
+
+          <div class="hero-proof">
+            <p>Useful for naming stores, digital products, creator brands, side projects, and social handles.</p>
+            <a href="#results" class="inline-link">Jump to generated names</a>
+          </div>
+        </div>
+
+        <section class="generator-card" id="generator" aria-labelledby="generator-title">
+          <div class="card-head">
+            <p class="section-kicker">Core generator</p>
+            <h2 id="generator-title">Create a new set of names</h2>
+            <p>
+              Start with a keyword if you have one, or leave it blank to explore broader directions.
+            </p>
+          </div>
+
+          <form id="generator-form" class="generator-form" novalidate>
+            <label class="field field-full" for="keyword">
+              <span>Keyword</span>
+              <input
+                type="text"
+                id="keyword"
+                name="keyword"
+                inputmode="text"
+                autocomplete="off"
+                placeholder="Enter a word like pixel, studio, fit, glow..."
+              >
+            </label>
+
+            <label class="field" for="category">
+              <span>Category</span>
+              <span class="control-wrap">
+                <select id="category" name="category">
+                  <option value="business">Business Name</option>
+                  <option value="brand">Brand Name</option>
+                  <option value="startup">Startup Name</option>
+                  <option value="username">Username</option>
+                </select>
+              </span>
+            </label>
+
+            <label class="field" for="style">
+              <span>Style</span>
+              <span class="control-wrap">
+                <select id="style" name="style">
+                  <option value="modern">Modern</option>
+                  <option value="luxury">Luxury</option>
+                  <option value="minimal">Minimal</option>
+                  <option value="creative">Creative</option>
+                  <option value="tech">Tech</option>
+                  <option value="playful">Playful</option>
+                </select>
+              </span>
+            </label>
+
+            <label class="field" for="length">
+              <span>Length</span>
+              <span class="control-wrap">
+                <select id="length" name="length">
+                  <option value="short">Short</option>
+                  <option value="medium">Medium</option>
+                  <option value="mixed" selected>Mixed</option>
+                </select>
+              </span>
+            </label>
+
+            <div class="field field-full">
+              <span>Quick seeds</span>
+              <div class="seed-row" aria-label="Example keywords">
+                <button type="button" class="seed-button" data-seed="pixel">pixel</button>
+                <button type="button" class="seed-button" data-seed="studio">studio</button>
+                <button type="button" class="seed-button" data-seed="fit">fit</button>
+                <button type="button" class="seed-button" data-seed="glow">glow</button>
+                <button type="button" class="seed-button" data-seed="north">north</button>
+                <button type="button" class="seed-button" data-seed="bloom">bloom</button>
+              </div>
+            </div>
+
+            <div class="form-actions field-full">
+              <button class="btn btn-primary" type="submit">Generate Names</button>
+              <button class="btn btn-secondary" id="reset-button" type="button">Clear</button>
+            </div>
+
+            <p class="form-note">
+              Suggestions are built for inspiration and shortlisting. Check naming availability before launch.
+            </p>
+          </form>
+        </section>
+      </section>
+
+      <aside class="insight-strip reveal" aria-label="Naming guidance">
+        <div>
+          <p class="section-kicker">Fast naming principle</p>
+          <h2>Strong names feel obvious after you hear them once.</h2>
+        </div>
+        <p>
+          Start broad, save a few options, then test the shortlist aloud. Names that sound natural often survive the next round.
+        </p>
+      </aside>
+
+      <section class="results-section reveal" id="results" aria-labelledby="results-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Results experience</p>
+            <h2 id="results-title">Shortlist your strongest directions</h2>
+            <p id="results-summary">
+              Generate a set to see names built around your category, style, and keyword.
+            </p>
+          </div>
+
+          <div class="section-actions">
+            <p class="results-count" id="results-count">Ready when you are</p>
+            <button class="btn btn-secondary" id="generate-more" type="button">
+              Generate More
+            </button>
+          </div>
+        </div>
+
+        <div class="results-layout">
+          <div class="results-panel">
+            <div class="results-grid" id="results-grid" aria-live="polite"></div>
+
+            <div class="empty-state" id="results-empty" hidden>
+              <div class="empty-icon" aria-hidden="true"></div>
+              <h3>Your next shortlist will appear here</h3>
+              <p>
+                Use a keyword like <strong>signal</strong>, <strong>fit</strong>, or <strong>luma</strong>,
+                then generate a set to start comparing options.
+              </p>
+            </div>
+          </div>
+
+          <aside class="saved-panel" aria-labelledby="saved-title">
+            <div class="saved-head">
+              <div>
+                <p class="section-kicker">Local shortlist</p>
+                <h3 id="saved-title">Saved names</h3>
+              </div>
+              <button class="text-button" id="clear-saved" type="button">Clear saved</button>
+            </div>
+
+            <p class="saved-copy">
+              Save promising options as you explore. Your shortlist stays in this browser.
+            </p>
+
+            <ul class="saved-list" id="saved-list"></ul>
+
+            <div class="saved-empty" id="saved-empty">
+              Nothing saved yet. Use the save button on any generated result.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <aside class="editorial-break reveal" aria-label="Shortlist advice">
+        <div class="editorial-copy">
+          <p class="section-kicker">After you shortlist</p>
+          <h2>Read the name out loud, search it, and spell it without thinking.</h2>
+          <p>
+            Good names survive quick real-world tests. If it is hard to say, spell, or remember, keep generating.
+          </p>
+        </div>
+      </aside>
+
+      <section class="section reveal" id="how-it-works" aria-labelledby="how-it-works-title">
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">How it works</p>
+            <h2 id="how-it-works-title">A simple three-step naming flow</h2>
+          </div>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-badge" aria-hidden="true">1</span>
+            <h3>Enter a keyword</h3>
+            <p>
+              Add a word connected to your product, tone, audience, or niche. You can also leave it blank for wider exploration.
+            </p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge" aria-hidden="true">2</span>
+            <h3>Choose a style</h3>
+            <p>
+              Switch between modern, luxury, minimal, creative, tech, and playful directions to shape the output.
+            </p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge" aria-hidden="true">3</span>
+            <h3>Generate and copy names</h3>
+            <p>
+              Review the set, copy what you like, and save the strongest options into a lightweight shortlist.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="why-name-matters" aria-labelledby="why-name-matters-title">
+        <div class="section-head split">
+          <div>
+            <p class="section-kicker">Why a good name matters</p>
+            <h2 id="why-name-matters-title">Memorable names make every next step easier</h2>
+          </div>
+          <p class="section-summary">
+            A strong name does more than sound good. It makes your product easier to repeat, easier to search, and easier to trust.
+          </p>
+        </div>
+
+        <div class="principles-layout">
+          <div class="principles-copy">
+            <p>
+              Brand names work best when they feel clear and intentional. The strongest options usually balance personality with
+              practicality: they are easy to say, easy to spell, and distinct enough to stand apart in a crowded market.
+            </p>
+            <p>
+              Whether you are naming a startup, a client studio, an ecommerce brand, or a personal username, aim for a name that
+              still feels strong after the first impression wears off.
+            </p>
+          </div>
+
+          <div class="principles-grid">
+            <article class="principle-card">
+              <h3>Memorable</h3>
+              <p>Names that stick are easier to recall, recommend, and search for later.</p>
+            </article>
+            <article class="principle-card">
+              <h3>Simple</h3>
+              <p>Shorter, clearer structures reduce friction when people first encounter your brand.</p>
+            </article>
+            <article class="principle-card">
+              <h3>Relevant</h3>
+              <p>The name should feel connected to your product, audience, or positioning.</p>
+            </article>
+            <article class="principle-card">
+              <h3>Distinctive</h3>
+              <p>Good names stand apart without becoming confusing or hard to pronounce.</p>
+            </article>
+            <article class="principle-card">
+              <h3>Easy to say</h3>
+              <p>Natural spoken rhythm helps a name travel by word of mouth.</p>
+            </article>
+            <article class="principle-card">
+              <h3>Easy to remember</h3>
+              <p>If people can repeat it after hearing it once, you are closer to a keeper.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <aside class="signal-panel reveal" aria-label="Naming checklist">
+        <div class="signal-pill">Name check</div>
+        <p>Before you commit, check pronunciation, domain availability, social handles, and how the name looks in a logo or app icon.</p>
+      </aside>
+
+      <section class="section reveal" id="use-cases" aria-labelledby="use-cases-title">
+        <div class="section-head split">
+          <div>
+            <p class="section-kicker">Category preview</p>
+            <h2 id="use-cases-title">One tool, four practical naming use cases</h2>
+          </div>
+          <p class="section-summary">
+            Use the same generator for founder projects, product brands, startup launches, and polished usernames.
+          </p>
+        </div>
+
+        <div class="preview-grid">
+          <article class="preview-card">
+            <h3>Business names</h3>
+            <p>Built for agencies, studios, service firms, shops, and modern small businesses.</p>
+            <div class="preview-tags">
+              <span>Copper Lane</span>
+              <span>North Foundry</span>
+              <span>Signal Works</span>
+              <span>Harbor Studio</span>
+            </div>
+          </article>
+          <article class="preview-card">
+            <h3>Brand names</h3>
+            <p>Suited to consumer products, fashion, cosmetics, wellness, and creator-led brands.</p>
+            <div class="preview-tags">
+              <span>Avenza</span>
+              <span>Velora</span>
+              <span>Bloomtica</span>
+              <span>Craftello</span>
+            </div>
+          </article>
+          <article class="preview-card">
+            <h3>Startup names</h3>
+            <p>Sharper, faster constructions for software, SaaS tools, AI products, and modern apps.</p>
+            <div class="preview-tags">
+              <span>Nuvic</span>
+              <span>Formli</span>
+              <span>Fluxbase</span>
+              <span>Novara</span>
+            </div>
+          </article>
+          <article class="preview-card">
+            <h3>Usernames</h3>
+            <p>Readable handles for creators, side projects, niche accounts, and personal brands.</p>
+            <div class="preview-tags">
+              <span>pixelnotes</span>
+              <span>luma.loop</span>
+              <span>fitmode</span>
+              <span>madebyvanta</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <aside class="editorial-break reveal narrow" aria-label="Naming confidence">
+        <div class="editorial-copy">
+          <p class="section-kicker">Practical reminder</p>
+          <h2>The best first draft is not the final answer. It is the start of a strong shortlist.</h2>
+          <p>
+            Generate widely, save selectively, and keep only names that still feel clear when they leave the screen.
+          </p>
+        </div>
+      </aside>
+
+      <section class="section reveal" id="faq" aria-labelledby="faq-title">
+        <div class="section-head split">
+          <div>
+            <p class="section-kicker">FAQ</p>
+            <h2 id="faq-title">Questions people ask before choosing a name</h2>
+          </div>
+          <p class="section-summary">
+            The generator is designed to help with early exploration, shortlisting, and faster decision-making.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>How does the name generator work?</summary>
+            <p>
+              It combines structured word banks, category-specific naming patterns, style rules, keyword blending, and duplicate filtering
+              to create brandable suggestions that feel more intentional than simple random output.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I use these names for my business?</summary>
+            <p>
+              Yes, you can use the suggestions as inspiration or as a starting shortlist. Before committing, you should still check
+              trademarks, domain availability, and social handle availability in your market.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Are the generated names unique?</summary>
+            <p>
+              The tool filters duplicates within each result set, but it does not verify legal or market uniqueness. Treat each suggestion
+              as a naming direction to research before launch.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>How do I choose a strong brand name?</summary>
+            <p>
+              Look for names that are easy to pronounce, easy to spell, distinctive in your category, and still meaningful after a few
+              hours away from the screen. Saying the name out loud is one of the fastest quality checks.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>What should I do after finding a name I like?</summary>
+            <p>
+              Save it, copy it into your working notes, then check domains, search results, trademarks, and social handles. It also helps
+              to see the name in context, such as a homepage title, app icon, or simple wordmark.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I generate usernames too?</summary>
+            <p>
+              Yes. Switch the category to Username and the tool will favor compact handle-style outputs that are easier to use across social
+              platforms, creator pages, and personal branding.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="site-footer">
+      <div>
+        <p class="footer-brand">Name Generator</p>
+        <p class="footer-copy">A clean one-page tool for generating memorable names for brands, businesses, startups, and usernames.</p>
+      </div>
+
+      <div class="footer-links">
+        <button class="footer-link" type="button" data-dialog-target="privacy-dialog">Privacy Policy</button>
+        <button class="footer-link" type="button" data-dialog-target="terms-dialog">Terms</button>
+        <a class="footer-link" href="mailto:hello@namegenerator.app">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="legal-dialog" id="privacy-dialog" aria-labelledby="privacy-title">
+    <div class="dialog-head">
+      <h2 id="privacy-title">Privacy Policy</h2>
+      <button type="button" class="dialog-close" data-close-dialog>&times;</button>
+    </div>
+    <p>
+      This local version stores saved names in your browser so you can keep a shortlist between visits. No account or external backend is
+      required for the core experience.
+    </p>
+  </dialog>
+
+  <dialog class="legal-dialog" id="terms-dialog" aria-labelledby="terms-title">
+    <div class="dialog-head">
+      <h2 id="terms-title">Terms</h2>
+      <button type="button" class="dialog-close" data-close-dialog>&times;</button>
+    </div>
+    <p>
+      Generated names are suggestions intended for inspiration. Before using a name commercially, verify its legal availability, domain
+      status, and suitability for your market.
+    </p>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
